@@ -52,6 +52,15 @@ void Display(struct Queue q)
     printf("\n");
 }
 
+int isFull(struct Queue *q)
+{
+    if (abs(q->rear - q->front) == q->size)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 int main()
 {
 
@@ -63,6 +72,8 @@ int main()
     enqueue(&q, 20);
     enqueue(&q, 30);
 
+    printf("%d\n", isFull(&q));
+
     Display(q);
 
     printf("%d\n", dequeue(&q));
@@ -73,6 +84,8 @@ int main()
     enqueue(&q, 50); // f2 r0
 
     Display(q);
+
+    printf("%d\n", isFull(&q));
 
     return 0;
 }

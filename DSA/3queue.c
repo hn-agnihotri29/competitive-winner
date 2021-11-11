@@ -125,13 +125,13 @@ void Display3(struct ThreeQueue q)
 
 int main()
 {
-    printf("test before create2");
+    // printf("test before create2");
     struct ThreeQueue q;
 
-    printf("test before create");
+    // printf("test before create");
 
     Create3(&q, 3);
-    printf("test after create");
+    // printf("test after create");
 
     enqueue3(&q, 10);
     Display3(q);
