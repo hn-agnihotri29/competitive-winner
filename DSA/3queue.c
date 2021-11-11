@@ -82,6 +82,7 @@ void Create3(struct ThreeQueue *q, int size)
     q->q1 = &q1;
     q->q2 = &q2;
     q->q3 = &q3;
+    q->size = size;
     Create(q->q1, size);
     Create(q->q2, size);
     Create(q->q3, size);
@@ -89,6 +90,7 @@ void Create3(struct ThreeQueue *q, int size)
 
 void enqueue3(struct ThreeQueue *q, int x)
 {
+    printf("test");
     if (isFull(q->q1) == 1)
     {
         if (isFull(q->q2) == 1)
@@ -109,31 +111,36 @@ void enqueue3(struct ThreeQueue *q, int x)
     }
     else
     {
+        printf("hey");
         enqueue(q->q1, x);
     }
 }
 
-void Display3(struct ThreeQueue *q)
+void Display3(struct ThreeQueue q)
 {
-    Display(*q->q1);
-    Display(*q->q2);
-    Display(*q->q3);
+    Display(*(q.q1));
+    // Display(*(q->q2));
+    // Display(*(q->q3));
 }
 
 int main()
 {
-
+    printf("test before create2");
     struct ThreeQueue q;
 
+    printf("test before create");
+
     Create3(&q, 3);
+    printf("test after create");
 
     enqueue3(&q, 10);
-    enqueue3(&q, 20);
-    enqueue3(&q, 30);
-    enqueue3(&q, 40);
-    enqueue3(&q, 50);
+    Display3(q);
+    // enqueue3(&q, 20);
+    // enqueue3(&q, 30);
+    // enqueue3(&q, 40);
+    // enqueue3(&q, 50);
 
-    Display3(&q);
+    // Display3(&q);
 
     // Display(q);
 
